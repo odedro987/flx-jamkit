@@ -4,6 +4,8 @@
 
 	<!-- _________________________ Application Settings _________________________ -->
 
+	<!-- <set name="playground" /> -->
+
 	<app title="flx-jamkit" file="flx-jamkit" main="Main" version="0.0.1" company="Oded Rosenblatt" />
 
 	<app preloader="flixel.system.FlxPreloader" />
@@ -28,8 +30,10 @@
 	<!-- _____________________________ Path Settings ____________________________ -->
 
 	<set name="BUILD_DIR" value="export" />
-	<source path="source" />
+	<source path="jamkit" include="jamkit" />
 	<assets path="assets" />
+	<source path="playground" if="playground" />
+	<assets path="playground/assets" if="playground" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
