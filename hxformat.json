@@ -1,0 +1,24 @@
+{
+  "lineEnds": {
+    "leftCurly": "both",
+    "rightCurly": "both",
+    "objectLiteralCurly": {
+      "leftCurly": "after"
+    }
+  },
+  "sameLine": {
+    "ifElse": "same",
+    "forBody": "same",
+    "doWhile": "next",
+    "tryBody": "next",
+    "tryCatch": "next"
+  },
+  "wrapping": {
+    "methodChain": {
+      "defaultWrap": "onePerLine"
+    },
+    "maxLineLength": 240,
+    "callParameter": { "defaultWrap": "noWrap" },
+    "functionSignature": { "defaultWrap": "noWrap" }
+  }
+}
