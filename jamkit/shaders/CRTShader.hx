@@ -2,7 +2,6 @@ package jamkit.shaders;
 
 import flixel.math.FlxPoint;
 import flixel.system.FlxAssets.FlxShader;
-import jamkit.shaders.Types.CRTOptions;
 
 typedef CRTOptions =
 {
@@ -103,7 +102,7 @@ class CRTShader extends FlxShader
 				gl_FragColor *= vec4(vec3(brightness), 1.0);
 			}
 		}')
-	public function new(?opts:Types.CRTOptions)
+	public function new(?opts:CRTOptions)
 	{
 		super();
 		if (opts == null)

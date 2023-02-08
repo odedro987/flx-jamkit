@@ -1,10 +1,9 @@
 package jamkit.shaders;
 
-import flixel.FlxG;
 import flixel.system.FlxAssets.FlxShader;
 import openfl.display.ShaderParameter;
 
-class WavyGrassShader extends FlxShader
+class SwayingVertexShader extends FlxShader
 {
 	@:glFragmentSource("
         #pragma header

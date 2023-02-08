@@ -3,10 +3,8 @@ package jamkit.shaders;
 import flixel.math.FlxPoint;
 import flixel.system.FlxAssets.FlxShader;
 
-class FollowScrollShader extends FlxShader
+class InfiniteBackgroundShader extends FlxShader
 {
-	private var _parallax:Float;
-
 	@:glFragmentSource("
 		#pragma header
 
