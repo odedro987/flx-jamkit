@@ -42,7 +42,7 @@ typedef WaterBodyOptions =
 var DefaultOptions:WaterBodyOptions = {
 	blendIntensity: 0.5,
 	dampeningFactor: 0.025,
-	tensionFactor: 0.025,
+	tensionFactor: 0.01,
 	spreadFactor: 0.25,
 	snapToGrid: true,
 }
@@ -59,7 +59,6 @@ class WaterBody extends FlxTypedGroup<WaterSpringSegment>
 
 	var snapToGrid:Bool;
 
-	var time:Float;
 	var spread:Float;
 	var tension:Float;
 	var dampening:Float;
@@ -96,16 +95,15 @@ class WaterBody extends FlxTypedGroup<WaterSpringSegment>
 		this.spread = options.spreadFactor;
 		this.tension = options.tensionFactor;
 		this.snapToGrid = options.snapToGrid;
-		this.time = 0.0;
 
 		for (i in 0...count)
 		{
 			var segment = add(new WaterSpringSegment(x + i * segmentWidth, y, segmentWidth, height, color, options.snapToGrid, options.blendIntensity));
 			segment.setIndex(i, count);
-			this.offsets.push(y);
 			this.springSpeeds.push(0);
 			this.lDeltas.push(0);
 			this.rDeltas.push(0);
+			this.offsets.push(y);
 		}
 	}
 
@@ -118,14 +116,15 @@ class WaterBody extends FlxTypedGroup<WaterSpringSegment>
 	{
 		super.update(elapsed);
 
-		time += elapsed;
-		time = time % 360;
-
 		for (i in 0...members.length)
 		{
 			var diff = targetY - offsets[i];
 			this.springSpeeds[i] += this.tension * diff - this.springSpeeds[i] * this.dampening;
 			this.offsets[i] += this.springSpeeds[i];
+			if (snapToGrid)
+			{
+				this.offsets[i] = Math.round(this.offsets[i] * 100) / 100;
+			}
 
 			members[i].updateOffsetY(true, this.offsets[i]);
 			members[i].updateOffsetY(false, this.offsets[i]);
@@ -164,6 +163,13 @@ class WaterBody extends FlxTypedGroup<WaterSpringSegment>
 					this.offsets[i + 1] += this.rDeltas[i];
 				}
 			}
+		}
+
+		if (FlxG.keys.justReleased.SPACE)
+		{
+			springSpeeds[Math.floor(members.length / 2)] = 10.0;
+			springSpeeds[Math.floor(members.length / 2) - 1] = 10.0;
+			springSpeeds[Math.floor(members.length / 2) + 1] = 10.0;
 		}
 	}
 }

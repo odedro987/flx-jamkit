@@ -1,24 +1,38 @@
 package jamkit.components.fluids;
 
 import flixel.FlxSprite;
+import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.util.FlxColor;
+import jamkit.shaders.UnderwaterShader;
 import jamkit.shaders.WaterSpringShader;
 
-class WaterSpringSegment extends FlxSprite
+class WaterSpringSegment extends FlxTypedGroup<FlxSprite>
 {
 	var waterShader:WaterSpringShader;
+	var underwaterShader:UnderwaterShader;
+	var segment:FlxSprite;
+	var buffer:FlxSprite;
 
 	public function new(x:Float, y:Float, width:Int, height:Int, color:FlxColor, snapToGrid:Bool = true, blendIntensity:Float = 0.5)
 	{
-		super(x, y);
-		makeGraphic(width, height, color);
-		this.waterShader = new WaterSpringShader(x, y, color, snapToGrid, blendIntensity);
-		this.shader = this.waterShader;
+		super(2);
+
+		buffer = new FlxSprite(x, y);
+		buffer.makeGraphic(width, height, color);
+		this.underwaterShader = new UnderwaterShader(x, y, color, blendIntensity);
+		buffer.shader = underwaterShader;
+		add(buffer);
+
+		segment = new FlxSprite(x, y);
+		segment.makeGraphic(width, height, color);
+		this.waterShader = new WaterSpringShader(color, snapToGrid, blendIntensity);
+		this.segment.shader = this.waterShader;
+		add(segment);
 	}
 
 	public function setIndex(index:Int, segmentCount:Int)
 	{
-		this.waterShader.setIndex(index, segmentCount);
+		this.underwaterShader.setIndex(index, segmentCount);
 	}
 
 	public function updateOffsetY(isLeft:Bool, offset:Float)
@@ -28,13 +42,13 @@ class WaterSpringSegment extends FlxSprite
 
 	public function updateCamBuffer(buffer:FlxSprite)
 	{
-		this.waterShader.updateCamBuffer(buffer.graphic.bitmap);
+		this.underwaterShader.updateCamBuffer(buffer.graphic.bitmap);
 	}
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
-		this.waterShader.updateTime(elapsed);
+		this.underwaterShader.updateTime(elapsed);
 	}
 }
