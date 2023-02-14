@@ -1,10 +1,10 @@
-package jamkit.components.fluids;
+package examples.fluids;
 
+import examples.fluids.WaterSpringSegment;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.util.FlxColor;
-import jamkit.components.fluids.WaterSpringSegment;
 
 typedef WaterBodyOptions =
 {

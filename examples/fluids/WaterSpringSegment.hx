@@ -1,10 +1,10 @@
-package jamkit.components.fluids;
+package examples.fluids;
 
+import examples.fluids.shaders.UnderwaterShader;
+import examples.fluids.shaders.WaterSpringShader;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.util.FlxColor;
-import jamkit.shaders.UnderwaterShader;
-import jamkit.shaders.WaterSpringShader;
 
 class WaterSpringSegment extends FlxTypedGroup<FlxSprite>
 {

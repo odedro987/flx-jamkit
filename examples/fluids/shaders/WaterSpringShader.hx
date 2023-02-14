@@ -1,4 +1,4 @@
-package jamkit.shaders;
+package examples.fluids.shaders;
 
 import flixel.system.FlxAssets.FlxShader;
 import flixel.util.FlxColor;
