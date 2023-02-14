@@ -10,6 +10,8 @@
 
 ### Removed
 
+- Obsolete `examples` assets path
+
 ## 0.1.0 (February 14th, 2023)
 
 ### Added

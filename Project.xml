@@ -32,7 +32,6 @@
 	<set name="BUILD_DIR" value="export" />
 	<source path="jamkit" include="jamkit" />
 	<assets path="assets" />
-	<assets path="examples/assets" />
 	<source path="playground" if="playground" />
 	<assets path="playground/assets" if="playground" />
 
