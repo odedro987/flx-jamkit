@@ -3,7 +3,7 @@
   "license": "MIT",
   "url": "https://github.com/odedro987/flx-jamkit",
   "contributors": ["odedro987"],
-  "version": "0.0.1",
+  "version": "0.1.0",
   "tags": ["flixel", "openfl"],
   "releasenote": "Dialog Manager, Custom Particle Emitter, Various Shaders.",
   "description": "A collection of HaxeFlixel utilities for game jams. Shaders, resuable components, etc.",
