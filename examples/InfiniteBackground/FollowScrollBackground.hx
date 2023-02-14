@@ -1,4 +1,4 @@
-package examples;
+package examples.infinite_background;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
