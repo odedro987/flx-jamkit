@@ -2,8 +2,6 @@ package examples.fluids.shaders;
 
 import flixel.system.FlxAssets.FlxShader;
 import flixel.util.FlxColor;
-import openfl.display.BitmapData;
-import openfl.display.ShaderInput;
 import openfl.display.ShaderParameter;
 
 class WaterSpringShader extends FlxShader

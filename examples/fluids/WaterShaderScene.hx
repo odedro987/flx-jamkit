@@ -1,4 +1,4 @@
-package scenes.water_scene;
+package examples.fluids;
 
 import examples.fluids.WaterBody;
 import flixel.FlxCamera;
